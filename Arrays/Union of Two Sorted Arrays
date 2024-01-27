@@ -1,0 +1,45 @@
+import java.util.*;
+public class Solution {
+    public static List< Integer > sortedArray(int []a, int []b) {
+        // Write your code here
+        List<Integer> ans = new ArrayList<>(); 
+        Set<Integer> seen = new HashSet<Integer>();
+        int i=0,j=0;
+        while(i<a.length&&j<b.length ){
+            if(a[i]<b[j]){
+                addifnotseen(ans,seen,a[i]);
+                    i++;
+            }
+            else if(a[i]>b[j]){
+                addifnotseen(ans,seen,b[j]);
+                j++;
+            }
+            else if(a[i]==b[j]){
+                 addifnotseen(ans,seen,a[i]);
+                    i++;
+                    j++;
+            }
+
+        }
+        while (i < a.length) {
+            addifnotseen(ans,seen,a[i]);
+            i++;
+        }
+
+        while (j < b.length) {
+            addifnotseen(ans,seen,b[j]);
+            j++;
+        }
+            
+
+
+        return ans;  
+    }
+    public static void addifnotseen(List <Integer> ans, Set <Integer> seen, int num){
+        if(!seen.contains(num)){
+            ans.add(num);
+            seen.add(num);
+        }
+        
+    }
+}
