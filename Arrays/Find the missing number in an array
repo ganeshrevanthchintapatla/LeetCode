@@ -1,0 +1,15 @@
+import java.util.*;
+public class Solution {
+    public static int missingNumber(int []a, int n) {
+        // Write your code here.
+        int sumofn=(n*(n+1))/2;
+        int sum=0;
+        for(int i=0;i<n;i++){
+            sum=sum+a[i];
+        }
+        int res=sumofn-sum;
+        
+        return res;
+        
+    }
+}
